@@ -1,0 +1,48 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    color: #333;
+}
+h1, h2 { 
+    color:#333366;
+    margin: 30px;;
+
+}
+.centered {
+    border: 2px solid #000; 
+    width: fit-content;    
+    margin: 0 auto;         
+    padding: 10px 20px;     
+    
+}
+.centered li {
+    text-align: left;
+    
+}
+.food {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 60px auto;
+    max-width: 800px;
+}
+
+.food-pic{
+    background-image: url("pictures/pasta.jpg"); 
+    background-size: cover;
+    background-position: center;
+    width: 700px;
+    height: 300px;
+    
+}
+
+.food2.text {
+    font-size: 18px;
+
+}
+
+.book-table tbody tr:nth-child(even) {
+    background-color: #b40a0a; /* Light gray background for even rows */
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Vattana Eang</h1>
+    <p>One of the most memorable trips I have ever taken was 2 years ago when my wife and I went
+        to Santorini, Greece. We spent 4 days and 3 nights on the island exploring the beautiful caldera, trying
+        out Greek food, and experiencing the breath taking views that Santorini has to offer.
+    </p>
+    <br />
+    Here is a list of my 3 favorite pet names:
+    <ul class="centered">
+        <li>A turtle named Toast</li>
+        <li>A dog named Noodle</li>
+        <li>A chicken named Beyonce</li>
+    </ul>
+    <p>
+        <a href="https://www.spaincranston.com" target="_blank">
+            Spain Restaurant
+        </a> locates in Cranston, RI. It serves Spanish and Mediterranean inspired cuisine. It is my favorite restaurant
+        because the food is amazing, the service is exceptional and the restaurent is calm and quiet.
+        Most importantly, the price is also reasonable.
+    </p>
+    <div class="food">
+        <div class="food-pic"></div>
+        <div class="food2-text">
+            <p>
+                I really love this house special called filet mignon served with pasta. The filet mignon was soft and
+                tasted very delicious when it is served medium. I enjoy it with a little bit of black pepper and
+                which adds a rich and savory flavor. Sometimes, I like to mix a bit of grated Parmesan into the pasta
+                for extra flavor.
+            </p>
+        </div>
+    </div>
+    <br clear="all">
+    <br />
+    <table class="book-table" border="5" cellspacing="5" cellpadding="5">
+        <tr>
+            <th><u>Book Name</u></th>
+            <th><u>Cover</u></th>
+            <th><u>Author</u></th>
+            <th><u>Summary</u></th>
+        </tr>
+        <tr>
+            <th>The Scarlet Letter</th>
+            <th><img src="pictures/TheScarletLetter.jpeg" width="100"></th>
+            <th>Nathaniel Hawthorne</th>
+            <th>"A young woman, Hester Prynne, has been found guilty of adultery and must wear a scarlet A on her
+                dress as a sign of shame."</th>
+        </tr>
+        <tr>
+            <th>The Fault in Our Stars</th>
+            <th><img src="pictures/TheFaultInOurStars.jpeg" width="100"></th>
+            <th>John Green</th>
+            <th>"Hazel Grace Lancaster (Shailene Woodley), a 16-year-old cancer patient,
+                meets and falls in love with Gus Waters (Ansel Elgort), a similarly afflicted teen from her cancer
+                support group."</th>
+        </tr>
+        <tr>
+            <th>First They Killed My Father</th>
+            <th><img src="pictures/FirstTheyKilledMyFather.jpeg" width="100"></th>
+            <th>Loung Ung</th>
+            <th>"Loung Ung is 5 years old when the Khmer Rouge assumes power over Cambodia in 1975. They soon begin a
+                four-year
+                reign of terror and genocide in which nearly 2 million Cambodians die. Forced from her family's home in
+                Phnom Penh,
+                Ung is trained as a child soldier while her six siblings are sent to labor camps."</th>
+        </tr>
+        <tr>
+            <th>The Great Gatsby</th>
+            <th><img src="pictures/TheGreatGatsby.jpeg" width="100"></th>
+            <th>F. Scott Fitzgerald</th>
+            <th>"The extravagantly wealthy Jay Gatsby orients his life around his desire to be reunited with Daisy
+                Buchanan,
+                the love he lost 5 years beforehand and who is now married to a man called Tom."</th>
+        </tr>
+    </table>
+    <h2>Guest Book</h2>
+    <form class="guestbook-form" action="#" method="post">
+        <table>
+            <tr>
+                <td><label for="firstName">First Name:</label></td>
+                <td><input type="text" id="firstName" name="firstName" required></td>
+            </tr>
+            <tr>
+                <td><label for="lastName">Last Name:</label></td>
+                <td><input type="text" id="lastName" name="lastName" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td><label for="city">City:</label></td>
+                <td><input type="text" id="city" name="city"></td>
+            </tr>
+            <tr>
+                <td><label for="state">State:</label></td>
+                <td>
+                    <select id="state" name="state" required>
+                        <option value="">-- Select State --</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="NY">New York</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="VT">Vermont</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="submit">Sign Guest Book</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
