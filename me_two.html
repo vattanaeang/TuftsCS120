@@ -83,44 +83,51 @@
         </tr>
     </table>
     <h2>Guest Book</h2>
-    <form class="guestbook-form" action="#" method="post">
-        <table>
-            <tr>
-                <td><label for="firstName">First Name:</label></td>
-                <td><input type="text" id="firstName" name="firstName" required></td>
-            </tr>
-            <tr>
-                <td><label for="lastName">Last Name:</label></td>
-                <td><input type="text" id="lastName" name="lastName" required></td>
-            </tr>
-            <tr>
-                <td><label for="email">Email:</label></td>
-                <td><input type="email" id="email" name="email" required></td>
-            </tr>
-            <tr>
-                <td><label for="city">City:</label></td>
-                <td><input type="text" id="city" name="city"></td>
-            </tr>
-            <tr>
-                <td><label for="state">State:</label></td>
-                <td>
-                    <select id="state" name="state" required>
-                        <option value="">-- Select State --</option>
-                        <option value="RI">Rhode Island</option>
-                        <option value="MA">Massachusetts</option>
-                        <option value="CT">Connecticut</option>
-                        <option value="NY">New York</option>
-                        <option value="NH">New Hampshire</option>
-                        <option value="VT">Vermont</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><button type="submit">Sign Guest Book</button></td>
-            </tr>
-        </table>
+    <form class="guestbook-form" action="#" method="get">
+        <div class="row">
+            <label>First Name:</label> <input type="text" name="first_name" required id="first_name">
+            <br>
+        </div>
+
+        <div class="row">
+            <label>Last Name:</label> <input type="text" name="last_name" required id="last_name">
+            <br>
+        </div>
+
+        <div class="row">
+            <label>Email:</label> <input type="email" name="email" required id="email">
+            <br>
+        </div>
+
+        <div class="row">
+            <label>City:</label> <input type="text" name="city" required id="city">
+            <br>
+        </div>
+        <div class="row">
+            <label>State:</label>
+            <select class="state" name="state" required id="state">
+                <option value="" disabled selected>Select your state</option>
+                <option value="RI">Rhode Island</option>
+                <option value="CT">Connecticut</option>
+                <option value="MA">Massachusetts</option>
+                <option value="NH">New Hamsphire</option>
+                <option value="VT">Vermont</option>
+            </select>
+        </div>
+        <div class="row submit-button">
+            <span class="spacer"></span>
+            <input type="submit" value="Submit">
+        </div>
     </form>
+
+    <div class="social-media">
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="pictures/FacebookIcon.jpeg" alt="Facebook" width="50" height="50">
+        </a>
+        <a href="https://www.x.com" target="_blank">
+            <img src="pictures/XIcon.jpeg" alt="X" width="50" height="50">
+        </a>
+    </div>
 </body>
 
 </html>

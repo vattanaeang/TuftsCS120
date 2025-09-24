@@ -1,6 +1,7 @@
 body, html {
     margin: 0;
-    padding: 0;
+    padding-right: 80px;
+    padding-left: 10px;
     font-family: sans-serif;
     color: #333;
 }
@@ -45,4 +46,107 @@ h1, h2 {
 
 .book-table tbody tr:nth-child(even) {
     background-color: #b40a0a; /* Light gray background for even rows */
+}
+
+.guestbook-form {
+
+    margin-right: 10px;
+}
+
+.row {
+    display: flex;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+label {
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.submit-button .spacer {
+    margin-right:10px;
+    width: 100px;
+}
+
+.social-media {
+    position:fixed;
+    top: 100px;
+    right:35px;
+    gap:20px;
+    display:flex;
+}
+
+@media screen and (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    h1, h2 {
+        margin: 20px 10px;
+        font-size: 24px;
+    }
+
+    .centered {
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .food {
+        flex-direction: column;
+        margin: 30px auto;
+    }
+
+    .food-pic {
+        height: 200px;
+    }
+
+    .food2-text {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .book-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .guestbook-form {
+        padding: 10px;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    label {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .submit-button {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .submit-button .spacer {
+        display: none;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+    }
+
+    .social-media {
+        position: static;
+        margin-top: 20px;
+        justify-content: center;
+        flex-direction: row;
+    }
+
 }
