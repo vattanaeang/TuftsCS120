@@ -7,14 +7,14 @@ body, html {
 }
 h1, h2 { 
     color:#333366;
-    margin: 30px;;
+    margin-bottom: 30px;
 
 }
 .centered {
     border: 2px solid #000; 
     width: fit-content;    
     margin: 0 auto;         
-    padding: 10px 20px;     
+    padding: 10px 40px;     
     
 }
 .centered li {
@@ -41,7 +41,6 @@ h1, h2 {
 
 .food2.text {
     font-size: 18px;
-
 }
 
 .book-table tbody tr:nth-child(even) {
