@@ -1,0 +1,8 @@
+.social-media {
+    position:fixed;
+    top: 15px;
+    right:35px;
+    gap:20px;
+    display:flex;
+    
+}
