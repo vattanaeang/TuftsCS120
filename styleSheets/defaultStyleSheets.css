@@ -1,8 +1,163 @@
-.social-media {
-    position:fixed;
-    top: 15px;
-    right:35px;
-    gap:20px;
-    display:flex;
-    
+body
+{
+background-color: rgb(197, 237, 237);}
+
+.icon {
+    background-image: url('../pictures/bdb.jpeg');
+    background-size: cover;
+    background-position: center;
+    width: 85px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    border-radius: 10px;
+    margin-left: 5%;
+
 }
+.social-media {
+    position: fixed;
+    top: 25px; 
+    right: 20px; 
+    display: flex;
+    gap: 20px;
+}
+
+.social-media a img {
+    width: 50px;
+    height: 50px;
+}
+
+.links {
+    justify-content: center;
+    text-align: center;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    padding: auto;
+
+}
+
+.links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: black;
+}
+
+h1 {
+    position: fixed;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 75px;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    z-index: 1000;
+    padding-top: 5px;
+    padding-bottom: 35px;
+    margin-bottom: 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 400;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+h3 {
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-spacing: 0 15px;
+    border-collapse: collapse;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.samplePictures {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+@media only screen and (max-width: 431px) {
+
+    body, html {
+        padding-right: 5%;
+        padding-left: 5%;
+        background-color: lightblue;
+   
+    }
+    .icon {
+    
+        width:90%;
+        justify-content: center;
+        border-radius: 5px;
+        padding: 5px;
+
+}
+
+    .links {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin:0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    padding: 10px 0;
+        box-sizing: border-box;
+
+}
+.social-media {
+    position: fixed;
+    top:auto;
+    right: auto;
+    left: auto
+    display: flex;
+    gap: 5px;
+}
+
+.social-media a img {
+    width: 15px;
+    height: 15px;
+}
+.icon {
+    background-image: url('../pictures/bdb.jpeg');
+    background-size: cover;
+    background-position: center;
+    width: 85px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-top: auto;
+
+}
+
