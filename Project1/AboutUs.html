@@ -26,7 +26,7 @@
         }
 
         .content {
-            max-width: 800px;
+           
             margin: 0 auto;
             padding-top: 150px;
             font-size: 20px;
@@ -38,6 +38,46 @@
             padding-bottom: 10px;
             font-size: 20px;
         }
+        .samplePictures {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                margin-top: 30px;
+        }
+
+        .samplePictures img {
+                width: 30%;
+                height: auto;
+                padding: 10px;
+                box-sizing: border-box;
+        }
+        @media (max-width: 788px) {
+        .samplePictures img {
+            width: 90%;
+        }
+        footer, .footer-div, .footer-div p, .footer-div a
+        {
+            width:90%;
+        }
+        h1{
+            position: fixed;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 75px;
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            z-index: 1000;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 25px;
+            font-family: 'Dancing Script', cursive;
+            margin-bottom: auto;
+        }
+    }
+
     </style>
 </head>
 
@@ -61,16 +101,13 @@
         </ol>
     </div>
 
-    <div class="samplePictures">
-        <img src="../pictures/aboutUsPic1.jpeg" alt="Band Picture">
-        <img src="../pictures/aboutUsPic2.jpeg" alt="Band Picture">
-        <img src="../pictures/aboutUsPic3.jpeg" alt="Band Picture">            
+    <div class="samplePictures" style="width: 100%; display:flex">
+        <img src="../pictures/aboutUsPic1.jpeg">
+        <img src="../pictures/aboutUsPic2.jpeg">
+        <img src="../pictures/aboutUsPic3.jpeg">            
     </div>
-
-</body>
-
-<footer style="text-align: center; padding: 20px; background-color: #f7eaea;">
-    <div style="background-color:black; color:white; display: inline-block; width: 35%;">
+    <footer style="text-align: center; padding: 20px; background-color: #f7eaea;">
+    <div class="footer-div" style="background-color:black; color:white; display: inline-block; width: 35%;">
         <p>2025 BDB. All rights reserved.</p>
         <nav>
             <a href="">Privacy Policy</a>
@@ -78,5 +115,8 @@
         <p>Contact: <a href="....">bookus@bdb.com</a></p>
     </div>
 </footer>
+
+</body>
+
 
 </html>
