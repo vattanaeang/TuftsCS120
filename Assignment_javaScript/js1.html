@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>JavaScript Assignment</h1>
+    <title>Problem 1</title>
+    <h2>Children Info:</h2>
+    <p id="childrenInfo"></p>
+    <script>
+        firstName = prompt("What is your first name?");
+
+        lastName = prompt("What is your last name?");
+
+        document.write("Your name is " + firstName + " " + lastName);
+        childrenCount = prompt("How many children do you have?");
+        number = parseInt(childrenCount);
+
+        message = "";
+
+        if (isNaN(number) || number < 0) {
+            message = "Invalid number of children.";
+        } else if (number === 0) {
+            message = "You have no children.";
+        } else if (number === 1) {
+            message = "You have 1 child.";
+        } else {
+            message = "You have " + number + " children.";
+        }
+
+
+        document.getElementById("childrenInfo").textContent = message;
+    </script>
+</body>
+
+</html>
