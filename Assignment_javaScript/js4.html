@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>JavaScript Assignment</h1>
+    <title>Problem 4</title>
+    <p>Odd numbers in the range: </p>
+    <p id="printOddNumbers"></p>
+    <p>Sum of all of the numbers in the range: </p>
+    <p id="printSum"></p><br>
+    
+    <script>
+        //assuming that num2 is always higher than num1
+        num1 = parseInt(prompt("Please Enter a number: "));
+        num2 = parseInt(prompt("Please Enter a 2nd number: "));
+        sum=0;
+        odd="";
+        for (i =num1; i<= num2; i++){
+            sum= sum+i;
+            if (i %2 != 0){
+                odd = odd +i +" ";
+            }
+        }
+        document.getElementById("printOddNumbers").textContent = odd;
+        document.getElementById("printSum").textContent = sum;
+    </script>
+</body>
+
+</html>
