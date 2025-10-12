@@ -1,0 +1,30 @@
+Complete this assignment to receive 40 points extra credit,
+
+Create a JavaScript class called GalleryItem to represent works of art.  Use the function technique for creating the class.
+
+The data members should be:
+
+name
+price
+thumbnail image
+large image
+Create an array of (5) GalleryItem instances
+
+On the page, create three areas using div's
+
+A space to display a (horizontal) row of (5) thumbnail images that represent each work of art in the gallery.
+An area to show a larger image of a work of art
+An area to display related information - you may place this 3rd area wherever you want
+Using jQuery, do the following:
+
+Populate the top div with the display of 5 thumbnails when the page loads
+When the user hovers over a thumbnail, display the corresponding large image in the space for the large image - best if the image fades in over 1-2 seconds
+When the user clicks on a thumbnail, display the panel of information that corresponds to that work of art (name, price).  Hide that panel after 4 seconds.
+
+Deliverable Worksheet
+
+URL of assignment online ______________________________________
+
+___  code files uploaded (do NOT include the jQuery library in your uploads)
+
+Answer to question: On a scale of 1 ( lowest) to 5 (highest), how much do you prefer using jQuery over JavaScript alone?  Why?

@@ -1,0 +1,89 @@
+Note:  +5 points extra credit for all submissions in by 11:59pm on Oct 9.
+
+IMPORTANT:
+
+There are 6 problems plus an extra credit problem.  Place the solution for each in its own file.  The files should be called js2_1.html, js2_2.html, etc.
+Create a separate file called js_part2.html that has links to each of the other files.
+
+Task 0:
+
+For problems 1-5, create a <div> on the page with an id = "answer" to display the result.
+Hint: You may use document.getElementById("answer").innerHTML or document.getElementById("answer").textContent to access the content of the div
+
+Problem 1: 
+
+a) Create a function called count() that takes two parameters: an array of numbers and a value.  The function should return the count of the number of items in the array that are less than the value.
+
+
+For example, if the array is 3 55 30 28 9 12
+and the value is:  10
+the function would return 2
+
+b) Create a second function called testCount() to create the array, call count() and display the result in the <div> created in Task 0 .  You may hard code the array and the value in the call to count().  testCount() should have no parameters or return value.
+
+Call testCount() from  your script.
+
+ 
+
+Problem 2: 
+
+Use prompt() to get a sentence from the user
+Use split to create an array in which each element of the array is a word in the sentence (you may assume spaces between words)
+Use the length property of the new array to determine the number of words in the sentence
+Display the number of words in the answer div
+Problem 3: 
+
+Create a string with several names separated by a comma - for example,  "Pat, Chris, Marlon, Ferncroft, Assunta"
+Using ONLY string or array methods,  display the names as a numbered list.  You may NOT use a for or while loop.
+   Hint1:  Think about the string method to turn the string into an array
+   Hint2: Think about the repetitive part of a list - ie, <li>anb</li>
+   Hint3: Think about methods of the array object that iterate through the array
+
+Problem 4: 
+
+Create a form with an input box to get a user's name
+Add 3 buttons to the form using <input type = 'button'>. The buttons should be labeled:  "Hello", "Good Bye", and "Greetings" respectively
+Do not add a submit button to the form
+Create a function called "speak" that has a parameter called "prefix"
+ie,    speak(prefix)
+speak() should display the prefix followed by the name in the input box
+for example, if the user enters "Bill" in the input box, speak("Hello") should pop up:  "Hello Bill"
+Assign an event handler to each button that calls the speak function.  Do this within the HTML code for the button
+Problem 5: 
+
+Copy the form from Problem 4 with the input box and the three buttons
+Rework the speak() event handler such that it does NOT include the greeting parameter.  Instead, use the text on the face of the clicked button to get the greeting prefix
+Assign the event handler within window.onload
+
+Problem 6: 
+
+Create a <select> element as a list (not a dropdown element- hint, set the size attribute of the <select> ).
+The <select> should display a list of at least 10 states - use Javascript to create the <option> elements using an array of the states. By default, the first item should be selected.
+Adjacent to the <select> list is a button labeled "Add State"
+Below the list is a div with a border and a button labeled "Clear States"
+When the user clicks "Add State", the selected state in the list should appear below in the div.  The user may continue to add more states to the list in the div
+When the user clicks "Clear States" the div should be emptied
+ 
+
+Extra Credit (5 points):
+
+Copy problem 6 to js2_ec.html and add the following functionality: 
+
+When "Add State" is clicked and a state is moved to the div, that state should disappear from the <select> list.
+When "Clear States" is clicked, the <select>list should be restored.
+The states in the <div> should appear as a numbered list
+ 
+
+Deliverable Worksheet:
+
+Files: all files compressed in a zip file and uploaded.  Please upload the deliverable notes separate from the zip file.
+
+URL for js_part2.html online (choose github or siteground – not both)    ____________________________
+ 
+
+Were there any problems in this assignment you could not complete? 
+yes___   no ____     If yes, please note:
+
+ 
+
+What was the most satisfying part of this assignment for you – and why?
