@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Problem 3</title>
+</head>
+
+<body>
+    <h1>Problem 3</h1>
+    <div id="answer"></div>
+
+    <script>
+        function print(names) {
+            arrayNames = names.split(", ");
+
+            listOfNames = arrayNames
+                .map(name => "<li>" + name + "</li>")
+                .join("");
+
+            list = "<ol>" + listOfNames + "</ol>";
+
+            document.getElementById("answer").innerHTML =
+                "List of Names:<br>" + list;
+        }
+        const names = "Pat, Chris, Marlon, Ferncroft, Assunta";
+        print(names);
+    </script>
+</body>
+
+</html>

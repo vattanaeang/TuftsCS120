@@ -13,7 +13,8 @@
     <h2>Please select a state from below</h2>
     <select name="states" id="states" size="10"></select>
     <button id="addBtn">Add State</button>
-    <div id="selectedStates" style="border: 3px solid black; padding: 10px; margin-top: 10px; min-height: 50px; max-width: 250px;"></div>
+    <ol id="selectedStates"
+        style="border: 3px solid black; padding: 10px 10px 10px 25px; margin-top: 10px; min-height: 50px; max-width: 250px;"></ol>
     <button id="clearBtn">Clear State</button>
 
     <script>
@@ -33,28 +34,35 @@
         const addBtn = document.getElementById('addBtn');
         const selectedStates = document.getElementById('selectedStates');
         const clearBtn = document.getElementById('clearBtn');
+
         //popluate states
-        for (let i = 0; i < states.length; i++) {
-            option = document.createElement('option');
-            option.value = states[i];
-            option.textContent = states[i];
-            if (i === 0) {
-                option.selected = true;
+        function populateStates() {
+            for (let i = 0; i < states.length; i++) {
+                option = document.createElement('option');
+                option.value = states[i];
+                option.textContent = states[i];
+                if (i === 0) {
+                    option.selected = true;
+                }
+                stateList.appendChild(option);
             }
-            stateList.appendChild(option);
         }
+        populateStates();
         //add states
         addBtn.addEventListener('click', () => {
             const selectedOption = stateList.options[stateList.selectedIndex].text;
-            const stateEntry = document.createElement('div');
+            const stateEntry = document.createElement('li'); //changed to li
             stateEntry.textContent = selectedOption;
             selectedStates.appendChild(stateEntry);
+            stateList.remove(stateList.selectedIndex);
         });
         // Clear state
         clearBtn.addEventListener('click', () => {
             selectedStates.innerHTML = '';
+            stateList.innerHTML = ''; //clear stateList
+            populateStates();   //then re-populate states 
         });
-
+        
     </script>
 </body>
 
