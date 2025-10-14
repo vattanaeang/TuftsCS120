@@ -1,0 +1,20 @@
+.normalSize {
+    display: flex;
+    justify-content: space-between; 
+    flex-wrap: nowrap; 
+    margin-top: 20px;
+   
+}
+.normalSize img {
+    width: 150px;
+    height: 100px;
+    margin: 10px;
+    
+}
+
+.largeSize img {
+    width: 250px;
+    height: 200px;
+    margin: 10px;
+    
+}

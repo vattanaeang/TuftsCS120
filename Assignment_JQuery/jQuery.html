@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styleSheets/jQueryStyleSheet.css">
     <title>Assignment: jQuery Practice</title>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -15,24 +16,9 @@
     <h1>Gallery</h1>
     <div id="gallery-container"></div>
 
-    <script>
-        var galleryItem = [
-            new GalleryItem("Ginevra de' Benci", 450000000, "/pictures/jQueryAssignment/pictures/Ginevra_de_Benci.jpeg", "pictures/item1Large.jpg"),
-            new GalleryItem("The Feast of the Gods", 200000, "pictures/item1.jpg", "pictures/item1Large.jpg"),
-            new GalleryItem("Family of Saltimbanques", 70000000, "pictures/item1.jpg", "pictures/item1Large.jpg"),
-            new GalleryItem("The Shaw 54th Regiment Memorial", 95000000, "pictures/item1.jpg", "pictures/item1Large.jpg"),
-            new GalleryItem("Woman with a Sunflower", 12500000, "pictures/item1.jpg", "pictures/item1Large.jpg"),
-            document.write(galleryItem);
-    </script>
-    <div class="normalSize">
-
-    </div>
-    <div class="largerSize">
-
-    </div>
-    <div class="info">
-
-    </div>
+    <div class="normalSize" id="normalSize"></div>
+    <div class="largeSize" id="largeSize"></div>
+    <div class="info" id="info"></div>
 </body>
 
 </html>
