@@ -1,20 +1,23 @@
 .normalSize {
     display: flex;
-    justify-content: space-between; 
-    flex-wrap: nowrap; 
+    justify-content: space-between;
+    flex-wrap: nowrap;
     margin-top: 20px;
-   
+
 }
+
 .normalSize img {
-    width: 150px;
-    height: 100px;
-    margin: 10px;
-    
+    margin-bottom: 50px;
+
 }
 
 .largeSize img {
-    width: 250px;
-    height: 200px;
+    height: 400px;
+    width: auto;
     margin: 10px;
-    
+
+}
+
+body {
+    background-color: rgb(201, 238, 238);
 }
