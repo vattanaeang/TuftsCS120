@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 
 // Define the array of colors and their corresponding values
@@ -48,7 +46,6 @@ const Block = ({ color, children, onClick }) => {
   );
 };
 
-// ColorGrid component to render the grid of blocks
 // this is requirement 4
 const ColorGrid = ({ colorArray }) => {
   const gridStyle = {
