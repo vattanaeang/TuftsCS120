@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const usedLettersDiv = document.getElementById("used-letters");
   const restartButton = document.getElementById("restartButton");
 
-  // Word list (30+ 5-letter words)
+  // Word list
   const wordList = [
     "apple", "brave", "cabin", "delta", "eagle", "flame",
     "giant", "habit", "index", "joker", "kneel", "lemon",
@@ -15,35 +15,39 @@ document.addEventListener("DOMContentLoaded", function () {
     "event", "frost", "grape", "heart"
   ];
 
-  // Pick a secret word at random
   const secretWord = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
   console.log("Secret Word (for testing):", secretWord);
 
-  // Used to track status of each letter
   const letterStatus = {}; // e.g. {A: "present", B: "absent", C: "correct"}
-
-  // Keyboard layout
   const keyboardLayout = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
+  let currentRow = 0;
+  let gameOver = false;
 
-  // Create the 6-row board
+  // Build board
   function createWordRow(rowIndex) {
-    const rowDiv = document.createElement("div");
-    rowDiv.classList.add("word-row");
+  const rowDiv = document.createElement("div");
+  rowDiv.classList.add("word-row");
 
-    for (let colIndex = 0; colIndex < 5; colIndex++) {
-      const cell = document.createElement("div");
-      cell.classList.add("letter-cell", `pos-${rowIndex}-${colIndex}`);
-      rowDiv.appendChild(cell);
-    }
+  // Arrow function to create a cell
+  const createCell = (row, col) => {
+    const cell = document.createElement("div");
+    cell.classList.add("letter-cell", `pos-${row}-${col}`);
+    return cell;
+  };
 
-    board.appendChild(rowDiv);
+  for (let colIndex = 0; colIndex < 5; colIndex++) {
+    const cell = createCell(rowIndex, colIndex);
+    rowDiv.appendChild(cell);
   }
+
+  board.appendChild(rowDiv);
+}
 
   for (let row = 0; row < 6; row++) {
     createWordRow(row);
   }
 
-  // Create the on-screen keyboard
+  // Build on-screen keyboard
   function createUsedLetterBoard() {
     usedLettersDiv.innerHTML = "";
 
@@ -57,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         key.textContent = letter;
 
         if (letterStatus[letter]) {
-          key.classList.add(letterStatus[letter]); // add class: 'correct', 'present', or 'absent'
+          key.classList.add(letterStatus[letter]);
         }
 
         key.id = `key-${letter}`;
@@ -68,11 +72,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  createUsedLetterBoard(); 
+  createUsedLetterBoard();
 
-  // Handle guess submission
+  // Handle guess submissions
   guessForm.addEventListener("submit", function (event) {
     event.preventDefault();
+    if (gameOver) return;
+
     const guess = guessInput.value.trim().toUpperCase();
 
     if (guess.length !== 5) {
@@ -80,27 +86,47 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Update letter status based on guess
+    // Display letters in the current row
     for (let i = 0; i < 5; i++) {
-      const letter = guess[i];
+      const cell = document.querySelector(`.pos-${currentRow}-${i}`);
+      cell.textContent = guess[i];
 
-      if (secretWord[i] === letter) {
-        letterStatus[letter] = "correct";
-      } else if (secretWord.includes(letter)) {
-        if (letterStatus[letter] !== "correct") {
-          letterStatus[letter] = "present";
+      if (secretWord[i] === guess[i]) {
+        cell.classList.add("correct");
+        letterStatus[guess[i]] = "correct";
+      } else if (secretWord.includes(guess[i])) {
+        cell.classList.add("present");
+        if (letterStatus[guess[i]] !== "correct") {
+          letterStatus[guess[i]] = "present";
         }
       } else {
-        if (!letterStatus[letter]) {
-          letterStatus[letter] = "absent";
+        cell.classList.add("absent");
+        if (!letterStatus[guess[i]]) {
+          letterStatus[guess[i]] = "absent";
         }
       }
     }
 
-    createUsedLetterBoard(); // Re-render keyboard with updated colors
+    createUsedLetterBoard(); // Update keyboard colors
 
-    alert("You guessed: " + guess); // Temp feedback — replace later with actual board update
+    if (guess === secretWord) {
+      alert("Congratulations");
+      gameOver = true;
+      restartButton.style.display = "inline-block";
+    } else {
+      currentRow++;
+      if (currentRow >= 6) {
+        alert(`Game Over! The word was: ${secretWord}`);
+        gameOver = true;
+        restartButton.style.display = "inline-block";
+      }
+    }
 
-    guessInput.value = ""; // Clear input
+    guessInput.value = ""; // Clear input box
+  });
+
+  // Restart button logic
+  restartButton.addEventListener("click", function () {
+    location.reload(); // Reload page to restart
   });
 });
