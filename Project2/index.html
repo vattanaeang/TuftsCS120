@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tufts CS120 Project 2</title>
+    <link rel="stylesheet" type="text/css" href="project2_styleSheet.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="project2_script.js"></script>
+</head>
+
+<body>
+    <div class="game-container">
+        <h1>Wordle</h1>
+        <div id="board"></div>
+
+        <form id="guess-form">
+            <input type="text" id="guess-input" maxlength="5" placeholder="Enter 5-letter word" />
+            <button type="submit">Check My Guess</button>
+        </form>
+
+        <div id="used-letters"></div>
+
+        <button id="restartButton" style="display:none;">Restart</button>
+    </div>
+</body>
+
+</html>

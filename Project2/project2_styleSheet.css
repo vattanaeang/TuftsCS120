@@ -1,0 +1,85 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #f4f4f4;
+}
+
+body h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 50px;
+}
+
+.letter-cell {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ccc;
+  margin: 2px;
+  font-size: 24px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40px;
+  background-color: white;
+}
+#board {
+  margin-top: 20px;
+  text-align: center;
+}
+.word-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+#used-letters {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.key {
+  width: 30px;
+  height: 40px;
+  margin: 2px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.correct {
+  background-color: green;
+  color: white;
+}
+
+.present {
+  background-color: goldenrod;
+  color: white;
+}
+
+.absent {
+  background-color: #888;
+  color: white;
+}
+
+#restart-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  display: none;
+}
