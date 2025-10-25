@@ -1,53 +1,55 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   const board = document.getElementById("board");
   const guessForm = document.getElementById("guess-form");
   const guessInput = document.getElementById("guess-input");
   const usedLettersDiv = document.getElementById("used-letters");
   const restartButton = document.getElementById("restartButton");
 
-  // Word list
-  const wordList = [
-    "apple", "brave", "cabin", "delta", "eagle", "flame",
-    "giant", "habit", "index", "joker", "kneel", "lemon",
-    "mango", "noble", "ocean", "piano", "queen", "robot",
-    "scale", "tiger", "uncle", "vivid", "whale", "xenon",
-    "youth", "zebra", "angel", "beach", "crisp", "dream",
-    "event", "frost", "grape", "heart"
-  ];
-
-  const secretWord = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
-  console.log("Secret Word (for testing):", secretWord);
-
-  const letterStatus = {}; // e.g. {A: "present", B: "absent", C: "correct"}
+  const letterStatus = {};
   const keyboardLayout = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
   let currentRow = 0;
   let gameOver = false;
 
-  // Build board
-  function createWordRow(rowIndex) {
-  const rowDiv = document.createElement("div");
-  rowDiv.classList.add("word-row");
-
-  // Arrow function to create a cell
-  const createCell = (row, col) => {
-    const cell = document.createElement("div");
-    cell.classList.add("letter-cell", `pos-${row}-${col}`);
-    return cell;
-  };
-
-  for (let colIndex = 0; colIndex < 5; colIndex++) {
-    const cell = createCell(rowIndex, colIndex);
-    rowDiv.appendChild(cell);
+  // ✅ Get a random 5-letter word from API
+  async function getData() {
+    const url = "https://random-word-api.vercel.app/api?words=1&length=5";
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+      const result = await response.json();
+      return result[0].toUpperCase();
+    } catch (error) {
+      console.error("Error fetching word:", error.message);
+      alert("Failed to load a random word. Using fallback word 'APPLE'.");
+      return "APPLE"; // fallback
+    }
   }
 
-  board.appendChild(rowDiv);
-}
+  // ✅ Wait for the word before continuing
+  const secretWord = await getData();
+  console.log("Secret Word (for testing):", secretWord);
+
+  // Board
+  function createWordRow(rowIndex) {
+    const rowDiv = document.createElement("div");
+    rowDiv.classList.add("word-row");
+
+    for (let colIndex = 0; colIndex < 5; colIndex++) {
+      const cell = document.createElement("div");
+      cell.classList.add("letter-cell", `pos-${rowIndex}-${colIndex}`);
+      rowDiv.appendChild(cell);
+    }
+
+    board.appendChild(rowDiv);
+  }
 
   for (let row = 0; row < 6; row++) {
     createWordRow(row);
   }
 
-  // Build on-screen keyboard
+  // Keyboard
   function createUsedLetterBoard() {
     usedLettersDiv.innerHTML = "";
 
@@ -74,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   createUsedLetterBoard();
 
-  // Handle guess submissions
+  // Handle guesses 
   guessForm.addEventListener("submit", function (event) {
     event.preventDefault();
     if (gameOver) return;
@@ -86,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Display letters in the current row
     for (let i = 0; i < 5; i++) {
       const cell = document.querySelector(`.pos-${currentRow}-${i}`);
       cell.textContent = guess[i];
@@ -107,26 +108,26 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    createUsedLetterBoard(); // Update keyboard colors
+    createUsedLetterBoard();
 
     if (guess === secretWord) {
-      alert("Congratulations");
+      alert("🎉 Congratulations!");
       gameOver = true;
       restartButton.style.display = "inline-block";
     } else {
       currentRow++;
       if (currentRow >= 6) {
-        alert(`Game Over! The word was: ${secretWord}`);
+        alert(`😞 Game Over! The word was: ${secretWord}`);
         gameOver = true;
         restartButton.style.display = "inline-block";
       }
     }
 
-    guessInput.value = ""; // Clear input box
+    guessInput.value = "";
   });
 
-  // Restart button logic
+  // Restart button
   restartButton.addEventListener("click", function () {
-    location.reload(); // Reload page to restart
+    location.reload();
   });
 });
