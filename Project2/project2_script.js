@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       return result[0].toUpperCase();
     } catch (error) {
       console.error("Error fetching word:", error.message);
-      alert("Failed to load a random word. Using fallback word 'APPLE'.");
-      return "APPLE"; // fallback
+      alert("Failed to load a random word. Using fallback word 'STYLE'.");
+      return "STYLE"; // fallback
     }
   }
 
