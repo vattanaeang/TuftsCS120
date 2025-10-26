@@ -111,13 +111,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     createUsedLetterBoard();
 
     if (guess === secretWord) {
-      alert("🎉 Congratulations!");
+      alert("Congratulations!");
       gameOver = true;
       restartButton.style.display = "inline-block";
     } else {
       currentRow++;
       if (currentRow >= 6) {
-        alert(`😞 Game Over! The word was: ${secretWord}`);
+        alert(`Game Over! The word was: ${secretWord}`);
         gameOver = true;
         restartButton.style.display = "inline-block";
       }
