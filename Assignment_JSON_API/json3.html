@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 3</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <h1>Part 3: Filter the data</h1>
+    <div id="filterForm">
+        <label for="genreSelect">Select Genre:</label>
+        <select id="genreSelect">
+            <option value="">Genres</option>
+        </select>
+        <button id="filterButton">Filter</button>
+    </div>
+    <div id="results"></div>
+    <script>
+        let songsData = [];
+
+        //get all genres
+        $.get("songs.json", function(data) {
+            songsData = data.songs;
+
+            let genres = new Set();
+            songsData.forEach(song => {
+                if (Array.isArray(song.genres)) {
+                    song.genres.forEach(g => genres.add(g));
+                } else if (song.genres) {
+                    genres.add(song.genres);
+                }
+            });
+
+            // Create dropdown
+            let options = `<option value="">Select a Genre </option>`;
+            genres.forEach(genre => {
+                options += `<option value="${genre}">${genre}</option>`;
+            });
+
+            $("#genreSelect").html(options);
+        });
+
+        
+        $("#filterButton").on("click", function() {
+            const selectedGenre = $("#genreSelect").val();
+            let output = "";
+
+            if (!selectedGenre) {
+                $("#results").html("<p>Please select a genre.</p>");
+                return;
+            }
+
+        
+            const filteredSongs = songsData.filter(song => {
+                if (Array.isArray(song.genres)) {
+                    return song.genres.includes(selectedGenre);
+                } else {
+                    return song.genres === selectedGenre;
+                }
+            });
+
+            if (filteredSongs.length === 0) {
+                output = "<p>No songs found for this genre.</p>";
+            } else {
+                filteredSongs.forEach(song => {
+                    output += `<div class="song-title">${song.title}</div>`;
+                });
+            }
+
+            $("#results").html(output);
+        });
+   
+    </script>
+
+</body>
+
+</html>

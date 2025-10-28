@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1</title>
+</head>
+
+<body>
+    <h1>List of songs as a string</h1>
+    <div id="songList">
+    </div>
+<script>
+    // JSON object representing a song list
+    const songList = {
+        "songs": [
+            {
+                "title": "Shape of You",
+                "artist": "Ed Sheeran",
+                "year": 2017,
+                "genres": ["Pop"]
+            },
+            {
+                "title": "Derek and The Dominoes",
+                "artist": "Layla",
+                "year": 1971,
+                "genres": ["Rock"]
+            },
+            {
+                "title": "What I Want",
+                "artist": ["Jacob Kasher", "Morgan Wallen", "Tate McRae"],
+                "year": 2025,
+                "genres": ["Country"]
+            },
+            {
+                "title": "My Own Summer (Shove It)",
+                "artist": "Deftones",
+                "year": 1997,
+                "genres": "Metal"
+            },
+            {
+                "title": "Jump",
+                "artist": ["Diplo", "Jumpa"],
+                "year": 2025,
+                "genres": ["Pop"]
+            },
+            {
+                "title": "God Gave Me You",
+                "artist": "Blake Shelton",
+                "year": 2011,
+                "genres": ["Country"]
+            },
+            {
+                "title": "We Will Rock You",
+                "artist": "Queen",
+                "year": 1977,
+                "genres": ["Rock"]
+            },
+            {
+                "title": "Smooth Criminal",
+                "artist": "Michael Jackson",
+                "year": 1988,
+                "genres": ["Pop", "Rock"]
+            }
+        ]
+    };
+    
+    const songListString = JSON.stringify(songList, null, 2);
+
+    
+    document.getElementById("songList").textContent = songListString;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 2</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+    </script>
+    <style>
+        .title {
+            font-weight: bold;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Part 2: Read a JSON from a file</h1>
+    <div id="songList">
+    </div>
+    <script>
+        $.get("songs.json", function (data) {
+            let output = "";
+
+            data.songs.forEach(song => {
+                
+                output += `
+                    <div class="song">
+                        <div class="title">Title: ${song.title}</div>
+                        <div class="artist">Artist: ${song.artists}</div>
+                        <div class="genres">Genre: ${song.genres}</div>
+                        <div class="year">Released ${song.year}</div>
+                        <br>
+                    </div>
+                `;
+            });
+
+            document.getElementById("songList").innerHTML = output;
+        });
+    </script>
+
+</body>
+
+</html>
