@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Weather by City</title>
+</head>
+<body>
+  <h1>Weather by City</h1>
+
+  <input type="text" id="city" placeholder="Enter city">
+  <button onclick="getWeather()">Get Weather</button>
+
+  <div id="weather"></div>
+
+  <script>
+    function getWeather() {
+      const city = document.getElementById('city').value.trim();
+      
+      if (!city) {
+        alert("Please enter a city.");
+        return;
+      }
+
+      // Geocoding API: just use city name
+      const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}`;
+
+      fetch(geoUrl)
+        .then(response => response.json())
+        .then(geoData => {
+          if (!geoData.results || geoData.results.length === 0) {
+            document.getElementById('weather').innerText = "Location not found.";
+            return;
+          }
+
+          const lat = geoData.results[0].latitude;
+          const lon = geoData.results[0].longitude;
+
+          // Open-Meteo API
+          const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+
+          return fetch(weatherUrl);
+        })
+        .then(response => response.json())
+        .then(weatherData => {
+          if (!weatherData || !weatherData.current_weather) return;
+
+          const temp = weatherData.current_weather.temperature;
+          const wind = weatherData.current_weather.windspeed;
+          const weatherCode = weatherData.current_weather.weathercode;
+            console.log(weatherData);
+          document.getElementById('weather').innerHTML = `
+            Current Temp: ${temp} °C<br>
+            Wind Speed: ${wind} m/s<br>
+            Weather Code: ${weatherCode}
+            
+          `;
+        })
+        .catch(err => {
+          console.error("Error:", err);
+          document.getElementById('weather').innerText = "Failed to retrieve weather data.";
+        });
+        
+    }
+  </script>
+</body>
+</html>
