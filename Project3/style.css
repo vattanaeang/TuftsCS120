@@ -1,0 +1,21 @@
+body { font-family: Arial; padding: 20px; }
+.logo { height: 60px; }
+nav a { margin-right: 20px; }
+
+.product-grid { display: flex; flex-wrap: wrap; gap: 20px; }
+.card { border: 1px solid #ccc; padding: 15px; width: 220px; }
+.card img { width: 220px; height: 220px; object-fit: cover; }
+.hidden { display: none; }
+
+.cart-table { width: 600px; border-collapse: collapse; }
+.cart-table th, .cart-table td { border: 1px solid #ccc; padding: 8px; }
+
+.order-block { margin-bottom: 20px; }
+
+.btn {
+    padding: 10px 20px;
+    background: #0074D9;
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+}
