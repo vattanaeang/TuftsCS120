@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>E-Store</title>
+<title>My Book Store</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
