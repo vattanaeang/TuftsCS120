@@ -13,18 +13,18 @@ $result = $conn->query("SELECT * FROM products");
         <img src="<?= $row['imageURL'] ?>">
         <h3><?= $row['name'] ?></h3>
         <p>$<?= $row['price'] ?></p>
-        <button onclick="addToCart(<?= $row['id'] ?>)">Add to Cart</button>
+        <button style="background-color:lightblue; padding=15px; font-size=25px" onclick="addToCart(<?= $row['id'] ?>)">Add to Cart</button>
 
-        <div class="description hidden">
+        <p>
             <?= $row['description'] ?>
-        </div>
+        </p>
     </div>
 <?php endwhile; ?>
 </div>
 
 <script>
 
-// Add to cart stored in Session via AJAX
+
 function addToCart(id){
     window.location = "cart.php?add=" + id;
 }
