@@ -13,7 +13,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
 
-    // Connect and ping MongoDB
+
 
     await client.connect();
     await client.db("admin").command({ ping: 1 });
