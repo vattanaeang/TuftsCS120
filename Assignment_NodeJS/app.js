@@ -25,39 +25,39 @@ async function run() {
     const data = fs.readFileSync("zips.csv", "utf8");
     const rows = data.trim().split("\n");
 
-    const placesArray = [];
-    const placeIndexMap = {};
+    const places = [];
+    const indexes = {};
 
     console.log("Reading CSV and building place objects...\n");
 
     for (let row of rows) {
       const [place, zip] = row.split(",");
 
-      if (!placeIndexMap.hasOwnProperty(place)) {
+      if (!indexes.hasOwnProperty(place)) {
         const newPlace = {
           place: place,
           zips: [zip]
         };
-        placesArray.push(newPlace);
-        placeIndexMap[place] = placesArray.length - 1;
+        places.push(newPlace);
+        indexes[place] = places.length - 1;
 
         console.log(`Added new place: ${place} with ZIP ${zip}`);
       } else {
-        const index = placeIndexMap[place];
-        if (!placesArray[index].zips.includes(zip)) {
-          placesArray[index].zips.push(zip);
+        const index = indexes[place];
+        if (!places[index].zips.includes(zip)) {
+          places[index].zips.push(zip);
           console.log(`Updated place: ${place} with additional ZIP ${zip}`);
         }
       }
     }
 
 
-    // Insert into MongoDB
+    // Insert
 
     const db = client.db("myDB");
     const collection = db.collection("places");
 
-    const result = await collection.insertMany(placesArray);
+    const result = await collection.insertMany(places);
     console.log(`Inserted ${result.insertedCount} places into MongoDB.\n`);
 
   } catch (err) {

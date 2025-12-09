@@ -3,12 +3,9 @@ const bodyParser = require("body-parser");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 8080;
 
-// EJS view engine
-app.set("view engine", "ejs");
-
-// Middleware to parse POST data
+// Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // MongoDB connection
@@ -20,6 +17,7 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
+
 let collection;
 
 async function connectDB() {
@@ -35,51 +33,74 @@ async function connectDB() {
 
 connectDB();
 
-// -----------------
-// Routes
-// -----------------
-
-// Home page
+// Home page (search form)
 app.get("/", (req, res) => {
-  res.render("home");
+  res.send(`
+    <html>
+      <head>
+        <title>Search Places</title>
+      </head>
+      <body>
+        <h1>Search Places</h1>
+        <form action="/process" method="POST">
+          <input type="text" name="query" placeholder="Enter place or ZIP" required />
+          <button type="submit">Search</button>
+        </form>
+      </body>
+    </html>
+  `);
 });
 
-// Process form submission
 app.post("/process", async (req, res) => {
   try {
     const userInput = req.body.query.trim();
-    let query;
 
-    if (/^\d+$/.test(userInput)) {
-      // ZIP code search with regex to handle trailing whitespace
-      const zipInput = userInput;
-      query = { zips: { $regex: `^${zipInput}\\s*$` } };
-      console.log("Searching ZIP code:", userInput);
+    let query;
+    if (/^\d/.test(userInput)) {
+
+      query = { zips: { $regex: `^${userInput}` } };
+      console.log("Searching ZIP:", userInput);
     } else {
-      // Place search (partial, case-insensitive)
+
       query = { place: { $regex: userInput, $options: "i" } };
       console.log("Searching Place:", userInput);
     }
 
-    console.log("MongoDB query:", JSON.stringify(query, null, 2));
+    // Search the database
+    const result = await collection.findOne(query) || { place: "Not found", zips: [] };
 
-    const result = await collection.findOne(query);
-
-    if (result) {
-      console.log("Found:", result);
-      res.render("process", { result });
-    } else {
-      console.log("No match found for:", userInput);
-      res.render("process", { result: { place: "Not found", zips: [] } });
-    }
+    res.send(`
+      <html>
+        <head>
+          <title>Results</title>
+        </head>
+        <body>
+          <h1>Search Results</h1>
+          <p><strong>Place:</strong> ${result.place}</p>
+          <p><strong>ZIPs:</strong> ${result.zips.join(", ")}</p>
+          <a href="/">Go back</a>
+        </body>
+      </html>
+    `);
 
   } catch (err) {
-    console.error("Error processing request:", err);
-    res.render("process", { result: { place: "Error", zips: [] } });
+    console.error("Error:", err);
+    res.send(`
+      <html>
+        <head>
+          <title>Error</title>
+        </head>
+        <body>
+          <h1>Error occurred</h1>
+          <p>Please try again later.</p>
+          <a href="/">Go back</a>
+        </body>
+      </html>
+    `);
   }
 });
 
 // Start server
 app.listen(port, () => {
-  console.log(`Web app running at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });
