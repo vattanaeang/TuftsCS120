@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
